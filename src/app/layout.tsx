@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Inter, Instrument_Serif, JetBrains_Mono, Outfit } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
 import Preloader from "@/components/Preloader";
 import Navbar from "@/components/Navbar/Navbar";
@@ -22,6 +22,11 @@ const instrument = Instrument_Serif({
 
 const mono = JetBrains_Mono({
   variable: "--font-jetbrains",
+  subsets: ["latin"],
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
@@ -66,7 +71,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${instrument.variable} ${mono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${instrument.variable} ${mono.variable} ${outfit.variable}`}>
       <body suppressHydrationWarning>
         <SmoothScroll>
           <Preloader />

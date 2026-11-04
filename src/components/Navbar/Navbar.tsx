@@ -77,9 +77,14 @@ export default function Navbar() {
   }, []);
 
   const goTo = (e: React.MouseEvent, href: string) => {
-    e.preventDefault();
     setMenuOpen(false);
     setActive(href);
+    if (typeof window !== "undefined" && window.location.pathname !== "/") {
+      // Navigate back to the homepage section
+      window.location.href = `/${href}`;
+      return;
+    }
+    e.preventDefault();
     requestAnimationFrame(() => {
       lenis?.scrollTo(href, { duration: 1.5, easing: easeOutQuart, offset: href === "#home" ? 0 : -8 });
     });
@@ -106,9 +111,14 @@ export default function Navbar() {
         >
           {/* Logo */}
           <a
-            href="#home"
+            href="/"
             id="nav-logo"
-            onClick={(e) => goTo(e, "#home")}
+            onClick={(e) => {
+              if (typeof window !== "undefined" && window.location.pathname !== "/") {
+                return;
+              }
+              goTo(e, "#home");
+            }}
             className="group inline-flex items-center gap-2.5 justify-self-start font-semibold tracking-tight cursor-pointer select-none"
           >
             <span

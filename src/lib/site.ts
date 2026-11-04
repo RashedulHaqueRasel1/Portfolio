@@ -28,7 +28,9 @@ export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
   { label: "Work", href: "#work" },
+  { label: "Labs", href: "#open-source" },
   { label: "Contact", href: "#contact" },
 ];
 
