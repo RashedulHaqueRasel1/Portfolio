@@ -701,7 +701,7 @@ export default function CenterFlow() {
                       {activeTech.category}
                     </span>
                   )}
-                  <span className="flex size-2 rounded-full bg-accent animate-ping" />
+                  {/* <span className="flex size-2 rounded-full bg-accent animate-ping" /> */}
                 </div>
                 {/* Description placed directly underneath */}
                 <p className="mt-1 text-xs sm:text-sm text-bone/75 font-sans leading-relaxed">
