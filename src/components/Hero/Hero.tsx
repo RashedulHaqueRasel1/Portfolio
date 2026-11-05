@@ -2,11 +2,18 @@
 
 import { useEffect, useState } from "react";
 import { useLenis } from "lenis/react";
-import { FiArrowDown, FiArrowUpRight, FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import {
+  FiArrowDown,
+  FiArrowUpRight,
+  FiGithub,
+  FiLinkedin,
+  FiMail,
+} from "react-icons/fi";
 import { cn } from "@/lib/cn";
 import { SOCIALS, easeOutQuart } from "@/lib/site";
 import CodeTerminalPreview from "./CodeTerminalPreview";
 import TechArcCarousel from "@/components/TechStack/TechArcCarousel";
+import { BiDownload } from "react-icons/bi";
 
 /** A line of text that slides up from behind a mask. */
 function RevealLine({
@@ -65,10 +72,11 @@ function RotatingRole() {
   return (
     <span className="relative block h-[1.25em] overflow-hidden">
       <span
-        className={`flex flex-col ${hasTransition
-          ? "transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-          : ""
-          }`}
+        className={`flex flex-col ${
+          hasTransition
+            ? "transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            : ""
+        }`}
         style={{
           transform: `translateY(-${(index * 100) / EXTENDED_ROLES.length}%)`,
         }}
@@ -105,23 +113,69 @@ function HeroActions() {
       className="mt-8 flex animate-fade-up flex-wrap items-center gap-3 sm:gap-4"
       style={{ animationDelay: "1s" }}
     >
-      <a
-        href="#work"
-        onClick={(e) => go(e, "#work")}
-        className="group inline-flex h-12 items-center gap-3 rounded-full bg-accent pr-1.5 pl-6 text-sm font-semibold text-ink transition-all duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-6px_rgba(210,255,58,0.55)]"
-      >
-        <span>View my work</span>
-        <span className="grid size-9 place-items-center rounded-full bg-ink text-accent transition-transform duration-500 ease-out-expo group-hover:rotate-45">
-          <FiArrowUpRight className="size-4" />
-        </span>
-      </a>
-      <a
+{/* Primary Button */}
+<a
+  href="#work"
+  onClick={(e) => go(e, "#work")}
+  className="group inline-flex h-12 items-center gap-3 rounded-full
+  bg-accent pr-1.5 pl-6 text-sm font-semibold text-ink
+  transition-all duration-300 ease-out-expo
+  hover:-translate-y-0.5
+  hover:shadow-[0_10px_30px_-6px_rgba(210,255,58,0.55)]"
+>
+  <span className="transition-colors duration-300 group-hover:text-black">
+    View my work
+  </span>
+
+  <span className="grid size-9 place-items-center rounded-full
+  bg-ink text-accent transition-all duration-500
+  ease-out-expo group-hover:rotate-45 group-hover:bg-accent
+  group-hover:text-ink">
+    <FiArrowUpRight className="size-4" />
+  </span>
+</a>
+
+{/* Secondary Button */}
+<a
+  href="/resume.pdf"
+  download
+  className="group inline-flex h-12 items-center gap-3 rounded-full
+  border border-white/30 bg-transparent pr-1.5 pl-6
+  text-sm font-semibold text-white
+  transition-all duration-300 ease-out-expo
+  hover:-translate-y-0.5 hover:border-accent
+  hover:bg-accent hover:text-ink
+  hover:shadow-[0_10px_30px_-6px_rgba(210,255,58,0.35)]"
+>
+  <span>Download Resume</span>
+
+  <span className="relative grid size-9 place-items-center rounded-full
+  bg-white/10 text-accent transition-all duration-500
+  group-hover:bg-ink group-hover:text-accent">
+
+    <FiArrowUpRight
+      className="absolute size-4 transition-all duration-300
+      group-hover:rotate-45 group-hover:opacity-0"
+    />
+
+    <FiArrowDown
+      className="absolute size-4 -rotate-45 opacity-0
+      transition-all duration-300
+      group-hover:rotate-0 group-hover:opacity-100"
+    />
+
+  </span>
+</a>
+      {/* <a
         href="#contact"
         onClick={(e) => go(e, "#contact")}
         className="inline-flex h-12 items-center gap-2 rounded-full border border-bone/20 bg-bone/[0.04] px-6 text-sm font-medium text-bone backdrop-blur-md transition-all duration-300 hover:border-bone/40 hover:bg-bone/[0.08]"
       >
-        Get in touch
-      </a>
+        Download Resume
+        <span className="grid size-9 place-items-center rounded-full bg-ink text-accent transition-transform duration-500 ease-out-expo group-hover:rotate-45">
+          <FiArrowUpRight className="size-4" />
+        </span>
+      </a> */}
       <div className="flex items-center gap-2 sm:ml-2">
         {HERO_SOCIALS.map(({ label, href, Icon }) => (
           <a
@@ -145,7 +199,9 @@ function ScrollCue() {
   return (
     <button
       type="button"
-      onClick={() => lenis?.scrollTo("#about", { duration: 1.5, easing: easeOutQuart })}
+      onClick={() =>
+        lenis?.scrollTo("#about", { duration: 1.5, easing: easeOutQuart })
+      }
       aria-label="Scroll to About section"
       className="group absolute right-6 bottom-6 z-30 hidden cursor-pointer items-center gap-3 font-mono text-[11px] tracking-[0.2em] text-bone/45 uppercase transition-colors hover:text-bone xl:flex"
     >
@@ -166,11 +222,20 @@ export default function Hero() {
       className="relative isolate min-h-svh overflow-hidden bg-ink pt-28 md:pt-28 lg:pt-26 pb-0 flex flex-col justify-between"
     >
       {/* Background Atmosphere */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-glow opacity-80" />
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-grid opacity-50" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-glow opacity-80"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-grid opacity-50"
+      />
 
       {/* Giant outlined Rasel name in background */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 grid place-items-center -z-10">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 grid place-items-center -z-10"
+      >
         <span className="font-serif text-[clamp(8rem,28vw,28rem)] leading-[0.9] tracking-[-0.04em] text-outline italic select-none opacity-30">
           <RevealLine delay={0.35}>Rasel</RevealLine>
         </span>
@@ -216,7 +281,8 @@ export default function Hero() {
               <span className="text-bone font-medium">Next.js</span> &amp;{" "}
               <span className="text-bone font-medium">MERN</span>.
               <span className="block text-bone/65 mt-2 text-xs md:text-sm">
-                Focused on pixel-perfect interfaces and scalable full-stack engineering.
+                Focused on pixel-perfect interfaces and scalable full-stack
+                engineering.
               </span>
             </p>
 
@@ -225,7 +291,10 @@ export default function Hero() {
 
           {/* Right Column: Code Terminal */}
           <div className="lg:col-span-6 xl:col-span-6 flex justify-center lg:justify-end relative z-20">
-            <div className="w-full max-w-[560px] animate-fade-in rounded-2xl" style={{ animationDelay: "0.5s" }}>
+            <div
+              className="w-full max-w-[560px] animate-fade-in rounded-2xl"
+              style={{ animationDelay: "0.5s" }}
+            >
               <CodeTerminalPreview />
             </div>
           </div>
