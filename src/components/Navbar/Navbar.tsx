@@ -127,9 +127,6 @@ export default function Navbar() {
             >
               R
             </span>
-            <span className="text-[17px] font-medium text-bone group-hover:text-white transition-colors">
-              rasel<span className="text-accent font-serif font-bold text-lg">.</span>
-            </span>
           </a>
 
           {/* Desktop links with sliding pill */}

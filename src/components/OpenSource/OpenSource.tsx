@@ -69,7 +69,7 @@ function NpmPackageCard({
         {/* Top Header & Badges */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 font-mono text-[11px] font-semibold text-red-400">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-bone-500/30 bg-bone-500/10 px-3 py-1 font-mono text-[11px] font-semibold text-red-400">
               <SiNpm className="size-3.5 text-red-400" />
               <span>NPM Package</span>
             </span>
@@ -252,16 +252,26 @@ export default function OpenSource() {
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
-              <a
-                href="https://www.npmjs.com/~rashedulhaquerasel1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-4 py-2 font-mono text-xs text-red-300 backdrop-blur-md transition-all hover:bg-red-500 hover:text-white"
-              >
-                <SiNpm className="size-3.5" />
-                <span>NPM Author Profile</span>
-                <FiArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
+<a
+  href="https://www.npmjs.com/~rashedulhaquerasel1"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group inline-flex items-center gap-2 rounded-full
+  border border-bone/20 bg-bone/[0.05] px-4 py-2
+  font-mono text-xs text-bone-500 backdrop-blur-md
+  transition-all duration-300 ease-out-expo
+  hover:-translate-y-0.5 hover:border-accent
+  hover:bg-accent hover:text-ink
+  hover:shadow-[0_10px_30px_-6px_rgba(210,255,58,0.35)]"
+>
+  <SiNpm className="size-3.5 transition-transform duration-300 group-hover:scale-110" />
+
+  <span>NPM Author Profile</span>
+
+  <FiArrowUpRight
+    className="size-3.5"
+  />
+</a>
 
               <a
                 href="https://github.com/RashedulHaqueRasel1"
